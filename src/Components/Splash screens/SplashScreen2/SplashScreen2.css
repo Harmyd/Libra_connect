@@ -1,0 +1,60 @@
+.SplashScreen2-div {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 90%;
+  padding-block: 2rem;
+}
+
+.SplashScreen2-centre-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.SplashScreen2-div a {
+  margin: 1rem 0;
+  text-align: right;
+  color: #000000;
+  text-decoration: none;
+}
+
+.SplashScreen2-div h2 {
+  font-size: clamp(1.3rem, 5vw, 3rem);
+  margin-top: 1.5rem;
+}
+
+.SplashScreen2-p {
+  margin: 1rem 0;
+}
+
+.SplashScreen2-button-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+  border: 2px solid #a675c1;
+  padding: 0.3rem;
+  width: 60px;
+  height: 60px;
+  border-radius: 100%;
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.SplashScreen2-button-div:active {
+  transform: scale(0.98);
+}
+
+.SplashScreen2-div button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  border: 0;
+  background-color: #a675c1;
+  border-radius: 100%;
+  margin-top: auto;
+}

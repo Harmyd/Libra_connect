@@ -1,0 +1,84 @@
+/* @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"); */
+
+body {
+  /* display: none; */
+  /* background-color: #aaaaaa; */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.arrow-left-btn {
+  background: transparent;
+  border: 0;
+  margin-bottom: 1rem;
+  width: 36px;
+  height: 36px;
+}
+
+.logo-sec {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  color: #5e1a84;
+}
+
+figure {
+  width: 300px;
+  height: 300px;
+}
+
+.logo1 {
+  width: 100px;
+  height: 36px;
+}
+
+@media (max-width: 800px) {
+  /* * {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  } */
+
+  body {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    display: block;
+    width: 90%;
+    margin: 0 auto;
+    background-color: #f4e7ff;
+  }
+  button {
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+    /* display: block; */
+  }
+
+  button:active {
+    transform: scale(0.98);
+  }
+  img {
+    max-width: 100%;
+  }
+
+  input,
+  select {
+    font-family: "Poppins", sans-serif;
+    /* color: #aaaaaa; */
+    font-size: 1rem;
+    font-weight: bold;
+  }
+
+  input:focus {
+    outline: 0;
+    border: 0;
+  }
+}
+
+/* My background color is #f5f5f5 */

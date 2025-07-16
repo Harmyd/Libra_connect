@@ -1,0 +1,133 @@
+.sign-up-main {
+  /* margin: 0 auto;
+  width: 90%; */
+  padding-block: 2rem;
+}
+
+.sign-up-arrow-left-btn {
+  background: transparent;
+  border: 0;
+  margin-bottom: 1rem;
+}
+
+.sign-up-first-sec {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  color: #5e1a84;
+}
+
+.sign-up-section {
+  text-align: center;
+  margin-top: 4rem;
+}
+
+.sign-up-section h2 {
+  /* font-size: clamp(1.2rem, 5vw, 3rem); */
+  margin: 1rem 0;
+  color: #5e1a84;
+}
+
+.sign-up-input-div {
+  position: relative;
+  margin: 2rem 0;
+}
+
+.sign-up-main small {
+  position: absolute;
+  left: 0;
+  top: 60px;
+}
+
+.sign-up-input-div input {
+  width: 80%;
+  padding: 1rem 1rem 1rem 3rem;
+  border: 0;
+  border-radius: 4px;
+}
+
+.sign-up-input-div img {
+  position: absolute;
+  top: 25%;
+  margin-left: 1rem;
+}
+
+.sign-up-input-div input:focus {
+  border: 0;
+  outline: 0;
+}
+
+.sign-up-input-div-password {
+  position: relative;
+}
+
+.sign-up-input-div-password > img {
+  position: absolute;
+  top: 24%;
+  margin-left: 1rem;
+}
+
+.sign-up-input-div-password input {
+  width: 72%;
+  padding: 1rem 3rem 1rem 3rem;
+  border: 0;
+  border-radius: 4px;
+}
+
+.sign-up-input-div-password input::placeholder,
+.sign-up-input-div input ::placeholder {
+  color: #aaaaaa;
+}
+
+.sign-up-toggle-eye {
+  position: absolute;
+  top: 30%;
+  right: 0;
+  background: transparent;
+  border: 0;
+  margin-right: 1rem;
+}
+
+.sign-up-btn {
+  padding: 1rem 2rem;
+  border-radius: 4px;
+  border: 0;
+  background-color: #9b51e0;
+  color: #ffffff;
+  font-weight: 600;
+  margin-top: 2rem;
+  width: 100%;
+  font-size: 1rem;
+}
+
+.sign-up-last-div {
+  text-align: center;
+  display: flex;
+  gap: 0.5em;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.sign-up-last-div h5 {
+  font-weight: bold;
+  color: #000;
+}
+.sign-up-last-div a {
+  text-decoration: none;
+  color: #5e1a84;
+  font-weight: bold;
+}
+
+.sign-up-correct {
+  color: #4caf50;
+  font-weight: bold;
+}
+
+.sign-up-wrong {
+  color: #f44336;
+  font-weight: bold;
+}

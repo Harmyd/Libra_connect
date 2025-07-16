@@ -1,0 +1,141 @@
+.login-main {
+  /* margin: 0 auto;
+  width: 90%; */
+  padding-block: 2rem;
+}
+
+.login-arrow-left-btn {
+  background: transparent;
+  border: 0;
+  margin-bottom: 1rem;
+}
+
+.login-first-sec {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  color: #5e1a84;
+}
+
+.login-second-sec {
+  text-align: center;
+  margin-top: 4rem;
+}
+
+.login-second-sec h1 {
+  color: #5e1a84;
+  margin-bottom: 2rem;
+}
+
+.login-input-email-div {
+  position: relative;
+  width: 100%;
+}
+
+.login-main input ::placeholder {
+  color: #aaaaaa;
+}
+
+.login-input-email-div input {
+  width: 80%;
+  padding: 1rem 1rem 1rem 3rem;
+  border: 0;
+}
+
+.login-input-email-div img {
+  position: absolute;
+  top: 20%;
+  margin-left: 1rem;
+}
+
+.login-input-div-password {
+  position: relative;
+  margin: 2rem 0;
+}
+
+.login-input-img {
+  position: absolute;
+  top: 25%;
+  margin-left: 1rem;
+}
+
+.login-input-div-password input {
+  width: 72%;
+  padding: 1rem 3rem 1rem 3rem;
+  margin: 0.6rem 0;
+  border: 0;
+  border-radius: 4px;
+}
+
+.login-toggle-eye {
+  position: absolute;
+  top: 25%;
+  right: 0;
+  background: transparent;
+  border: 0;
+  margin-right: 1rem;
+}
+
+.login-wrong-username {
+  position: absolute;
+  left: 0;
+  top: 60px;
+  color: red;
+}
+
+.login-main input:focus {
+  border: 0;
+  outline: 0;
+}
+
+.login-password-div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.login-password-div small {
+  color: red;
+}
+
+.login-password-div a {
+  display: block;
+  margin-left: auto;
+  color: #a675c1;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.login-btn {
+  padding: 1rem 2rem;
+  border-radius: 4px;
+  border: 0;
+  background-color: #9b51e0;
+  color: #ffffff;
+  font-weight: 600;
+  margin-top: 0.5rem;
+  width: 100%;
+  font-size: 1rem;
+}
+
+.login-last-div {
+  text-align: center;
+  display: flex;
+  gap: 0.5em;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.login-last-div h5 {
+  font-weight: bold;
+  color: #000;
+}
+
+.login-last-div a {
+  text-decoration: none;
+  color: #5e1a84;
+  font-weight: bold;
+}

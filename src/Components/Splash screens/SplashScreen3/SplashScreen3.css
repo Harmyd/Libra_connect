@@ -1,0 +1,49 @@
+.SplashScreen3-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  width: 90%;
+  padding-block: 2rem;
+  text-align: center;
+}
+
+.SplashScreen3-div h1 {
+  font-size: clamp(1.5rem, 5vw, 3rem);
+}
+
+.SplashScreen3-p {
+  margin: 2rem 0;
+}
+
+.SplashScreen3-button-div:active {
+  transform: scale(0.98);
+}
+
+.SplashScreen3-button-div {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  width: 100%;
+}
+
+.SplashScreen3-div button {
+  width: 100%;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 4px;
+}
+
+.SplashScreen3-button1 {
+  background: #9b51e0;
+  color: #ffffff;
+  border: 0;
+}
+
+.SplashScreen3-button2 {
+  background-color: #ffffff;
+  border: 1px solid #5e1a84;
+  color: #5e1a84;
+}

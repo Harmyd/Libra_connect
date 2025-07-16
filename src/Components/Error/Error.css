@@ -1,0 +1,12 @@
+.Error-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.Error-div a {
+  /* text-decoration: none; */
+  color: #a675c1;
+}

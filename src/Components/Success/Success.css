@@ -1,0 +1,27 @@
+.success-sec {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.success-sec > div {
+  width: 100px;
+  height: 100px;
+}
+
+.success-sec h4 {
+  margin: 2rem 0 1rem 0;
+}
+
+.success-sec button {
+  margin-top: 2rem;
+  background-color: #9b51e0;
+  padding: 0.75rem 2rem;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 500;
+  border: 0;
+  border-radius: 4px;
+}
