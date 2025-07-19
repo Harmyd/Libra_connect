@@ -3,7 +3,7 @@ import { Form } from "react-router-dom";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 
-const Book = () => {
+const Book = ({ title, authors, department, availability }) => {
   return (
     <section className="book-sec">
       <div className="book-sec-first-div">
@@ -17,11 +17,11 @@ const Book = () => {
       </div>
 
       <div className="book-sec-second-div">
-        <h3 className="book-sec-second-div-space">The Art of Coding </h3>
-        <p className="book-sec-second-div-space">Jamie Foxx</p>
-        <h6 className="book-sec-second-div-space">Science </h6>
+        <h3 className="book-sec-second-div-space">{title} </h3>
+        <p className="book-sec-second-div-space">{authors}</p>
+        <h6 className="book-sec-second-div-space">{department} </h6>
         <span className="book-sec-second-div-space book-sec-second-div-available">
-          <small> Available </small>
+          <small>{availability} </small>
         </span>
         <div>
           <Form action="/success">
