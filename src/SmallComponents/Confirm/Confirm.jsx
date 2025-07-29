@@ -23,7 +23,7 @@ const Confirm = ({
           />
         </div>
 
-        <p>{confirmText}</p>
+        <p>Are you sure you want to borrow {confirmText}?</p>
         <div children className="confirm-btn-div">
           <Form>
             <button className="confirm-btn-1" onClick={confirmBtn1}>

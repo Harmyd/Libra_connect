@@ -22,6 +22,15 @@
   padding: 1rem;
 }
 
+.book-sec-second-div h3 {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+  margin-top: 0.5rem;
+}
+
 .book-sec-second-div-space {
   /* display: block; */
   margin: 0.5rem 0;

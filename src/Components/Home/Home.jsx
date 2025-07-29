@@ -57,7 +57,7 @@ const Home = () => {
       } catch (err) {
         if (!err.response) {
           // No response from server = likely network error
-          console.log(err);
+          // console.log(err);
         } else {
           // Backend responded with error (like 400, 500)
           // console.log(err.response?.data);
@@ -88,13 +88,29 @@ const Home = () => {
           title={displayBook.Title}
           department={displayBook.Category}
           availability={displayBook.Availability}
-          authors={displayBook.Authors[0]}
+          authors={displayBook.Authors}
+          bookId={displayBook.Google_book_id}
+          borrowed={displayBook.Borrowed}
         />
       );
     });
+
+    // return displayBookArr.map((displayBook) => {
+    // return (
+    //   <Book
+    //     key={displayBook.Google_book_id}
+    //     title={displayBook.Title}
+    //     department={displayBook.Category}
+    //     availability={displayBook.Availability}
+    //     authors={displayBook.Authors}
+    //     bookId={displayBook.Google_book_id}
+    //     borrowed={displayBook.Borrowed}
+    //   />
+    // );
+    // });
   });
 
-  console.log(showBooks);
+  console.log(books);
 
   return (
     <main className="home-main">
