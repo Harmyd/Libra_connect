@@ -1,12 +1,53 @@
 import "./BorrowedBooksPage.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Form } from "react-router-dom";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import BorrowedBook from "../BorrowedBook/BorrowedBook";
+import Loading from "../../../SmallComponents/Loading/Loading";
+import Error from "../../Error/Error";
+import axios from "axios";
 
 const BorrowedBooksPage = () => {
-  return (
+  const [loading, setLoading] = useState(false);
+
+  const token =
+    sessionStorage.getItem("signUpToken") ||
+    sessionStorage.getItem("loginToken");
+
+  useEffect(() => {
+    const getBorrowedBooks = async () => {
+      if (!token) return; // Don't call if token isn't ready
+      setLoading(true);
+      try {
+        const res = await axios.get(
+          "https://library-management-system-9v95.onrender.com/books/get_borrowed_books",
+
+          {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+        console.log(res.data);
+      } catch (err) {
+        if (!err.response) {
+          // No response from server = likely network error
+          console.log(err);
+        } else {
+          // Backend responded with error (like 400, 500)
+          setLoading(false);
+          console.log(err.response?.data);
+        }
+      } finally {
+        setLoading(false);
+      }
+    };
+    getBorrowedBooks();
+  }, [token]);
+
+  return token ? (
     <main className="borrowed-books-page-main">
       <Form action="/login">
         <button className="home-arrow-left-btn">
@@ -43,6 +84,8 @@ const BorrowedBooksPage = () => {
         <BorrowedBook />
       </section>
     </main>
+  ) : (
+    <Error />
   );
 };
 

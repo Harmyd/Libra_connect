@@ -4,8 +4,8 @@ import "./Error.css";
 const Error = () => {
   return (
     <div className="Error-div">
-      <p>Not Found</p>
-      <Link to="/">Home</Link>
+      {/* <p>Not Found</p> */}
+      <Link to="/login">Login</Link>
     </div>
   );
 };
