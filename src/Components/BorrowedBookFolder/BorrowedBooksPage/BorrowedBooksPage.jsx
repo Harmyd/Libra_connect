@@ -10,6 +10,7 @@ import axios from "axios";
 
 const BorrowedBooksPage = () => {
   const [loading, setLoading] = useState(false);
+  const [borrowedBooks, setBorrowedBooks] = useState(null);
 
   const token =
     sessionStorage.getItem("signUpToken") ||
@@ -30,11 +31,12 @@ const BorrowedBooksPage = () => {
             },
           }
         );
-        console.log(res.data);
+        // console.log(res.data);
+        setBorrowedBooks(res.data.Books);
       } catch (err) {
         if (!err.response) {
           // No response from server = likely network error
-          console.log(err);
+          // console.log(err);
         } else {
           // Backend responded with error (like 400, 500)
           setLoading(false);
@@ -47,9 +49,13 @@ const BorrowedBooksPage = () => {
     getBorrowedBooks();
   }, [token]);
 
+  let displayBorrowedBooks = borrowedBooks ? borrowedBooks : [];
+
+  console.log(displayBorrowedBooks);
+
   return token ? (
     <main className="borrowed-books-page-main">
-      <Form action="/login">
+      <Form action="/home">
         <button className="home-arrow-left-btn">
           <img src="./Images/arrow-left.png" alt="arrow-left" />
         </button>
@@ -75,13 +81,25 @@ const BorrowedBooksPage = () => {
           </p>
         </div>
       </section>
-      <section>
-        <BorrowedBook />
-        <BorrowedBook />
-        <BorrowedBook />
-        <BorrowedBook />
-        <BorrowedBook />
-        <BorrowedBook />
+
+      <section className="borrowed-books-page-third-sec">
+        {displayBorrowedBooks.length === 0 ? (
+          <p>You haven't borrowed any book </p>
+        ) : (
+          displayBorrowedBooks.map((displayBorrowedBook) => {
+            return (
+              <BorrowedBook
+                key={displayBorrowedBook.Google_book_id}
+                borrowedBookTitle={displayBorrowedBook.Title}
+                bookId={displayBorrowedBook.Google_book_id}
+                title={displayBorrowedBook.Title}
+                authors={displayBorrowedBook.Author}
+                department={displayBorrowedBook.Category}
+                dueDate={displayBorrowedBook.due_date}
+              />
+            );
+          })
+        )}
       </section>
     </main>
   ) : (

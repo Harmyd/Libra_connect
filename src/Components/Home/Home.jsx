@@ -8,7 +8,6 @@ import Message from "../../SmallComponents/Message/Message";
 import Loading from "../../SmallComponents/Loading/Loading";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { object } from "framer-motion/client";
 
 const Home = () => {
   const [auth, setAuth] = useState("");
@@ -109,8 +108,6 @@ const Home = () => {
     // );
     // });
   });
-
-  console.log(books);
 
   return (
     <main className="home-main">
