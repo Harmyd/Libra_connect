@@ -7,6 +7,7 @@ import Loading from "../../SmallComponents/Loading/Loading";
 import Message from "../../SmallComponents/Message/Message";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { jwtDecode } from "jwt-decode"; // ✅ correct import
 
 const Login = () => {
   const [eye, setEye] = useState(true);
@@ -40,16 +41,26 @@ const Login = () => {
       );
 
       const { message, Token } = response.data;
+
+      // ✅ decode the JWT properly
+      const decoded = jwtDecode(Token);
+      console.log("Decoded token:", decoded);
+
+      // ✅ Save token & user info in sessionStorage
       sessionStorage.setItem("loginMsg", message);
       sessionStorage.setItem("loginToken", Token);
       sessionStorage.setItem("authSource", "login");
+
+      // Save username/email from JWT payload if available
+      if (decoded?.email || decoded?.user_name) {
+        sessionStorage.setItem("loginUser", decoded.email || decoded.user_ame);
+      }
+
       navigate("/home");
     } catch (err) {
       if (!err.response) {
-        // No response from server = likely network error
         setMsg("Please check your network.");
       } else {
-        // Backend responded with error (like 400, 500)
         setLoading(false);
         setMsg(err.response.data.message);
         console.log(err.response.data.message);
@@ -107,7 +118,6 @@ const Login = () => {
                 setUserData({ ...userData, Email: e.target.value })
               }
             />
-            {/* <small className="login-wrong-username">Invalid Email</small> */}
           </div>
 
           <div className="login-input-div-password">
@@ -125,7 +135,6 @@ const Login = () => {
               }
             />
             <div className="login-password-div">
-              {/* <small>Wrong Password</small> */}
               <Link to="/resetPassword1" className="login-forget-password">
                 Forget Password?
               </Link>

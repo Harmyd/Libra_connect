@@ -1,21 +1,16 @@
 import "./BorrowedBook.css";
 
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import { useNavigate } from "react-router-dom";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import { useState } from "react";
 import Confirm from "../../../SmallComponents/Confirm/Confirm";
+import Loading from "../../../SmallComponents/Loading/Loading";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 
-const BorrowedBook = ({
-  borrowedBookTitle,
-  bookId,
-  title,
-  authors,
-  department,
-  dueDate,
-}) => {
+const BorrowedBook = ({ borrowedBookTitle, bookId, title, dueDate }) => {
   const [viewConfirm, setViewConfirm] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   let token =
     sessionStorage.getItem("loginToken") ||
@@ -27,10 +22,9 @@ const BorrowedBook = ({
     setViewConfirm(false);
   };
 
-  console.log(dueDate);
-
   const confirmBtn2 = async (e) => {
     e.preventDefault();
+    setViewConfirm(false);
 
     try {
       const res = await axios.post(
@@ -56,11 +50,11 @@ const BorrowedBook = ({
         console.log(err);
       } else {
         // Backend responded with error (like 400, 500)
-        // setLoading(false);
+        setLoading(false);
         console.log(err.response?.data);
       }
     } finally {
-      // setLoading(false);
+      setLoading(false);
     }
   };
 
@@ -74,6 +68,7 @@ const BorrowedBook = ({
 
   return (
     <>
+      {loading && <Loading />}
       {viewConfirm && (
         <Confirm
           confirmImg="book-01"

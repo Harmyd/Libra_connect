@@ -1,5 +1,6 @@
 import "./BorrowedBooksPage.css";
 import { useState, useEffect } from "react";
+import { createContext } from "react";
 import { Form } from "react-router-dom";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
@@ -7,6 +8,8 @@ import BorrowedBook from "../BorrowedBook/BorrowedBook";
 import Loading from "../../../SmallComponents/Loading/Loading";
 import Error from "../../Error/Error";
 import axios from "axios";
+
+export const DataContext = createContext();
 
 const BorrowedBooksPage = () => {
   const [loading, setLoading] = useState(false);
@@ -54,54 +57,61 @@ const BorrowedBooksPage = () => {
   console.log(displayBorrowedBooks);
 
   return token ? (
-    <main className="borrowed-books-page-main">
-      <Form action="/home">
-        <button className="home-arrow-left-btn">
-          <img src="./Images/arrow-left.png" alt="arrow-left" />
-        </button>
-      </Form>
-      <section className="borrowed-books-page-first-sec">
-        <h3>Welcome Sophia</h3>
-        <div className="home-first-sec-user">
-          <LazyLoadImage
-            src="./Images/user.png"
-            alt="User"
-            effect="blur"
-            wrapperProps={{ style: { transitionDelay: "2s" } }}
-            placeholderSrc="User"
-          />
-        </div>
-      </section>
-
-      <section className="borrowed-books-page-second-sec">
-        <input type="text" placeholder="Search borrowed books" />
-        <div className="borrowed-books-page-second-sec-div">
-          <p>
-            You have borrowed <span>7 out 15 books</span>
-          </p>
-        </div>
-      </section>
-
-      <section className="borrowed-books-page-third-sec">
-        {displayBorrowedBooks.length === 0 ? (
-          <p>You haven't borrowed any book </p>
-        ) : (
-          displayBorrowedBooks.map((displayBorrowedBook) => {
-            return (
-              <BorrowedBook
-                key={displayBorrowedBook.Google_book_id}
-                borrowedBookTitle={displayBorrowedBook.Title}
-                bookId={displayBorrowedBook.Google_book_id}
-                title={displayBorrowedBook.Title}
-                authors={displayBorrowedBook.Author}
-                department={displayBorrowedBook.Category}
-                dueDate={displayBorrowedBook.due_date}
+    <>
+      {loading && <Loading />}
+      <DataContext.Provider value={displayBorrowedBooks}>
+        <main className="borrowed-books-page-main">
+          <Form action="/home">
+            <button className="home-arrow-left-btn">
+              <img src="./Images/arrow-left.png" alt="arrow-left" />
+            </button>
+          </Form>
+          <section className="borrowed-books-page-first-sec">
+            <h3>Welcome Sophia</h3>
+            <div className="home-first-sec-user">
+              <LazyLoadImage
+                src="./Images/user.png"
+                alt="User"
+                effect="blur"
+                wrapperProps={{ style: { transitionDelay: "2s" } }}
+                placeholderSrc="User"
               />
-            );
-          })
-        )}
-      </section>
-    </main>
+            </div>
+          </section>
+
+          <section className="borrowed-books-page-second-sec">
+            <input type="text" placeholder="Search borrowed books" />
+            <div className="borrowed-books-page-second-sec-div">
+              <p>
+                You have borrowed{" "}
+                <span>
+                  {displayBorrowedBooks.length}
+                  {displayBorrowedBooks.length === 1 ? "book" : "books"}
+                </span>
+              </p>
+            </div>
+          </section>
+
+          <section className="borrowed-books-page-third-sec">
+            {displayBorrowedBooks.length === 0 ? (
+              <p>You haven't borrowed any book </p>
+            ) : (
+              displayBorrowedBooks.map((displayBorrowedBook) => {
+                return (
+                  <BorrowedBook
+                    key={displayBorrowedBook.Google_book_id}
+                    borrowedBookTitle={displayBorrowedBook.Title}
+                    bookId={displayBorrowedBook.Google_book_id}
+                    title={displayBorrowedBook.Title}
+                    dueDate={displayBorrowedBook.due_date}
+                  />
+                );
+              })
+            )}
+          </section>
+        </main>
+      </DataContext.Provider>
+    </>
   ) : (
     <Error />
   );

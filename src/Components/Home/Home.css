@@ -95,3 +95,70 @@
   text-align: center;
   margin: 1rem 0;
 }
+
+/*Desktop view*/
+@media (min-width: 1024px) {
+  .home-main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-block: 2rem;
+  }
+
+  .home-first-sec {
+    padding-block: 2rem;
+  }
+
+  .home-first-sec h3 {
+    font-size: 2rem;
+  }
+
+  .home-first-sec-user {
+    width: 80px;
+    height: 80px;
+  }
+
+  .home-second-sec {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  .home-second-sec-first-div {
+    flex: 1;
+  }
+
+  .home-second-sec input {
+    width: 100%;
+    padding: 1.2rem 2rem;
+    font-size: 1rem;
+  }
+
+  .home-second-sec button {
+    padding: 1rem 2rem;
+    font-size: 18px;
+  }
+
+  .home-second-sec-div {
+    margin-top: 0;
+    text-align: left;
+    padding: 1rem 1.5rem;
+  }
+
+  .home-third-sec {
+    margin-block: 4rem;
+  }
+
+  .home-third-sec > h3 {
+    text-align: left;
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+  }
+
+  .home-third-sec-books {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+}

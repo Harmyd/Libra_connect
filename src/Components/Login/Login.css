@@ -139,3 +139,58 @@
   color: #5e1a84;
   font-weight: bold;
 }
+
+/* --- Desktop Styles --- */
+@media (min-width: 1024px) {
+  .login-main {
+    max-width: 500px;  /* Centers the form */
+    margin: 0 auto;
+    padding-block: 3rem;
+  }
+
+  .login-first-sec {
+    text-align: left;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+
+  .login-second-sec {
+    margin-top: 5rem;
+  }
+
+  .login-second-sec h1 {
+    font-size: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  .login-input-email-div input,
+  .login-input-div-password input {
+    width: 100%;
+    padding: 1.2rem 1rem 1.2rem 3rem;
+    font-size: 1rem;
+  }
+
+  .login-input-email-div img,
+  .login-input-img {
+    top: 30%;
+  }
+
+  .login-toggle-eye {
+    top: 30%;
+  }
+
+  .login-password-div a {
+    font-size: 1rem;
+  }
+
+  .login-btn {
+    padding: 1.2rem 2rem;
+    font-size: 1.1rem;
+    width: 100%;
+  }
+
+  .login-last-div h5,
+  .login-last-div a {
+    font-size: 1rem;
+  }
+}
