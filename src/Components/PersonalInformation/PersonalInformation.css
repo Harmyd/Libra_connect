@@ -1,0 +1,89 @@
+.personal-info-arr-div {
+  margin-top: 2rem;
+}
+
+.personal-info-main h2 {
+  text-align: center;
+  /* margin: 3rem 0; */
+  margin: 1rem 0 3rem 0;
+  color: #171717;
+}
+
+.personal-info-first-sec {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* position: relative; */
+}
+
+.personal-info-user-div {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  border: 1px solid #ff5722;
+  border-radius: 100%;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.personal-info-user {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* display: none; */
+  border-radius: 100%;
+}
+
+.personal-info-edit-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 100%;
+  background-color: #ffffff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-top: 5rem;
+  margin-left: 5.5rem;
+}
+
+.personal-info-second-sec {
+  margin-top: 3rem;
+}
+
+.personal-info-second-sec > div {
+  display: flex;
+  gap: 0.3rem;
+  margin-top: 2rem;
+}
+
+.personal-info-second-sec > div div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.personal-info-form {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.personal-info-form button {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.2rem;
+  background: #9b51e0;
+  color: #ffffff;
+  border: 0;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  margin-top: 3rem;
+  font-weight: 700;
+  font-size: 1rem;
+}

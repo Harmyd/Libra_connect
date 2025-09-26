@@ -3,9 +3,10 @@ import { Form, Link } from "react-router-dom";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import Loading from "../../SmallComponents/Loading/Loading";
-import Error from "../Error/Error";
+// import Error from "../Error/Error";
 import "./UserProfile.css";
 import axios from "axios";
+import { logDOM } from "@testing-library/dom";
 
 const UserProfile = () => {
   const [userDetails, setUserDetails] = useState(null);
@@ -15,13 +16,15 @@ const UserProfile = () => {
     sessionStorage.getItem("loginToken") ||
     sessionStorage.getItem("signUpToken");
 
+  console.log(token);
+
   useEffect(() => {
     const getUserDetails = async () => {
       if (!token) return; // Don't call if token isn't ready
       setLoading(true);
       try {
         const res = await axios.get(
-          "https://student-complaint-system.onrender.com/users/get_user_detail",
+          "https://library-management-system-9v95.onrender.com/user/get_user_detail",
 
           {
             headers: {
@@ -31,6 +34,7 @@ const UserProfile = () => {
           }
         );
         setUserDetails(res.data);
+        console.log(res.data);
       } catch (err) {
         if (!err.response) {
           // No response from server = likely network error
@@ -82,23 +86,26 @@ const UserProfile = () => {
 
       <section className="user-profile-second-sec">
         <Link to="/personalInfo">
-          Personal Information
+          <div>
+            <img src="./Images/user-01.png" alt="" />
+            <p>Personal Information</p>
+          </div>
           <img src="./Images/arrow-down-01.png" alt="arrow" />
         </Link>
 
         <Link to="/complaintsPage">
-          My Complaints
-          <img src="./Images/arrow-down-01.png" alt="arrow" />
-        </Link>
+          <div>
+            <img src="./Images/book-bookmark.png" alt="" />
 
-        <Link>
-          Notifications
+            <p>Borrowing History</p>
+          </div>
           <img src="./Images/arrow-down-01.png" alt="arrow" />
         </Link>
       </section>
     </main>
   ) : (
-    <Error />
+    // <Error />
+    <h1>Not found</h1>
   );
 };
 

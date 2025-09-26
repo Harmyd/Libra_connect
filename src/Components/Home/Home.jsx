@@ -7,6 +7,7 @@ import axios from "axios";
 import Book from "../Book/Book";
 import Message from "../../SmallComponents/Message/Message";
 import Loading from "../../SmallComponents/Loading/Loading";
+import User from "../../SmallComponents/User/User";
 
 import "./Home.css";
 
@@ -16,6 +17,8 @@ const Home = () => {
   const [books, setBooks] = useState({});
   const [searchQuery, setSearchQuery] = useState("");
   const [loading, setLoading] = useState(false);
+  const [showUser, setShowUser] = useState(false);
+  const [userEmail, setUserEmail] = useState("");
 
   const navigate = useNavigate();
 
@@ -34,6 +37,10 @@ const Home = () => {
       setAuth(authSource);
       setToken(loginToken);
     }
+
+    // Get user email from sessionStorage (adjust this based on where you store the email)
+    const email = sessionStorage.getItem("userEmail") || "user@example.com";
+    setUserEmail(email);
   }, []);
 
   // Fetch books based on search query
@@ -91,6 +98,24 @@ const Home = () => {
       [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
     }
     return shuffled;
+  };
+
+  // User profile functions
+  const openUserProfile = () => {
+    setShowUser(true);
+  };
+
+  const closeUserProfile = () => {
+    setShowUser(false);
+  };
+
+  // Handle clicking on the main content when user profile is open
+  const handleMainClick = (e) => {
+    if (showUser) {
+      // Only close if clicking on the main content, not on the user profile itself
+      e.preventDefault();
+      closeUserProfile();
+    }
   };
 
   // Prepare book components - handle both API structures
@@ -151,7 +176,10 @@ const Home = () => {
   }).filter(Boolean);
 
   return (
-    <main className="home-main">
+    <main className="home-main" onClick={handleMainClick}>
+      {/* User Profile Component - pass userEmail as prop */}
+      {showUser && <User closeUserProfile={closeUserProfile} userEmail={userEmail} />}
+
       {/* Show success message if login/signup */}
       {auth && (
         <Message
@@ -164,7 +192,10 @@ const Home = () => {
       {/* Welcome section */}
       <section className="home-first-sec">
         <h3>Welcome Sophia</h3>
-        <div className="home-first-sec-user">
+        <div className="home-first-sec-user" onClick={(e) => {
+          e.stopPropagation(); // Prevent the main click handler from firing
+          openUserProfile();
+        }}>
           <LazyLoadImage
             src="./Images/user.png"
             alt="User"

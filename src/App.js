@@ -12,6 +12,8 @@ import ResetPassword3 from "./Components/ResetPassword/ResetPassword3/ResetPassw
 import ResetPassword4 from "./Components/ResetPassword/ResetPassword4/ResetPassword4";
 import Success from "./Components/Success/Success";
 import BorrowedBooksPage from "./Components/BorrowedBookFolder/BorrowedBooksPage/BorrowedBooksPage";
+import UserProfile from "./SmallComponents/UserProfile/UserProfile";
+import PersonalInformation from "./Components/PersonalInformation/PersonalInformation";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
@@ -66,6 +68,14 @@ function App() {
     {
       path: "/borrowedBooksPage",
       element: <BorrowedBooksPage />,
+    },
+    {
+      path: "/userProfile",
+      element: <UserProfile />,
+    },
+    {
+      path: "/personalInfo",
+      element: <PersonalInformation />,
     },
   ]);
   return (
